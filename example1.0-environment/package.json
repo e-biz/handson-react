@@ -1,0 +1,16 @@
+{
+  "name": "example1-environement",
+  "version": "1.0.0",
+  "description": "intall environement exercice",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base src/"
+  },
+  "author": "jbpetit@excilys.com",
+  "license": "MIT",
+  "devDependencies": {
+    "json-loader": "^0.5.4",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
