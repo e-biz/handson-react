@@ -1,0 +1,11 @@
+{
+  "name": "example1-environement",
+  "version": "1.0.0",
+  "description": "intall environement exercice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
