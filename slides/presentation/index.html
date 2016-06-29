@@ -19,12 +19,71 @@
             <p>"JavaScript is a high-level, dynamic, untyped, and interpreted programming language."</p>
         </section>
         <section>
+            <h1>Javascript Modules</h1>
+            <p>Module is the way to split our code. There is 3 type of modules in JS: AMD, CommonJs and ES modules.</p>
+        </section>
+        <section>
             <h1>NodeJs</h1>
             <p>Interpreter of Javascript.</p>
         </section>
         <section>
             <h1>NPM</h1>
             <p>Dependency manager for Javascript base on CommonJs modules.</p>
+        </section>
+        <section>
+            <h1>useful commands</h1>
+            <p>Install command will pull the dependency from npmjs.com repository and will install it in the local
+                node_modules.</p>
+            <pre><code class="hljs" data-trim contenteditable>
+npm install batman-dep
+                </code></pre>
+        </section>
+        <section>
+            <h1>useful commands</h1>
+            <p>run command will execute the script describe in package.json.</p>
+            <pre><code class="hljs" data-trim contenteditable>
+{
+  "name": "example1-environement",
+  "version": "1.0.0",
+  "description": "intall environement exercice",
+  "main": "index.js",
+  "scripts": {
+    "echo": "echo -e 'nothing to display, no script'"
+  },
+  "author": "jbpetit@excilys.com",
+  "license": "MIT"
+}
+                </code></pre>
+                        <pre><code class="hljs" data-trim contenteditable>
+npm run echo
+                </code></pre>
+        </section>
+        <section>
+            <h1>Webpack</h1>
+            <p>Webpack self defines as a module bundler. It a tool that permit to build and package our application.</p>
+        </section>
+        <section>
+            <h1>Webpack</h1>
+            <p>Config file example</p>
+            <pre><code class="hljs" data-trim contenteditable>
+var path = require("path");
+
+module.exports = { // This is just a commonJs Module
+    entry: {
+        app: ["./app.js"] // Entry point
+    },
+    output: {
+        path: path.resolve(__dirname, "package"), // Output dir
+        filename: "bundle.js"
+    },
+    module: {
+        ... // Load some modules
+    },
+    plugins: [
+        ... // Load some plugins
+    ]
+};
+            </code></pre>
         </section>
     </div>
 </div>
