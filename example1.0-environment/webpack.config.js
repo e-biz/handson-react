@@ -1,17 +1,22 @@
+var TransferWebpackPlugin = require('transfer-webpack-plugin');
 var path = require("path");
 
 module.exports = {
     entry: {
-        app: ["./src/app.js"]
+        app: ["./app/js/main.js"]
     },
     output: {
         path: path.resolve(__dirname, "dist"),
-        publicPath: "/example1/", // bundle.js can be display on http://localhost:8080/example1/bundle.js
         filename: "bundle.js"
     },
     module: {
         loaders: [
-            { test: /\.json$/, loader: "json" }
+            {test: /\.json$/, loader: "json"}
         ]
-    }
+    },
+    plugins: [
+        new TransferWebpackPlugin([
+            { from: 'app/root' }
+        ])
+    ]
 };
