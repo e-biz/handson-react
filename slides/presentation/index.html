@@ -10,8 +10,161 @@
 <body>
 <div class="reveal">
     <div class="slides">
-        <section>Slide 1</section>
-        <section>Slide 2</section>
+        <section>
+            <h1>Hand on React</h1>
+            <h3>Excilys</h3>
+        </section>
+        <section>
+            <h1>Javascript</h1>
+            <p>"JavaScript is a high-level, dynamic, untyped, and interpreted programming language."</p>
+        </section>
+        <section>
+            <h1>Javascript Modules</h1>
+            <p>Module is the way to split our code. There is 3 type of modules in JS: AMD, CommonJs and ES modules.</p>
+        </section>
+        <section>
+            <h1>NodeJs</h1>
+            <p>Interpreter of Javascript.</p>
+        </section>
+        <section>
+            <h1>NPM</h1>
+            <p>Dependency manager for Javascript base on CommonJs modules.</p>
+        </section>
+        <section>
+            <h1>useful commands</h1>
+            <p>Install command will pull the dependency from npmjs.com repository and will install it in the local
+                node_modules.</p>
+            <pre><code class="hljs" data-trim contenteditable>
+npm install batman-dep
+                </code></pre>
+        </section>
+        <section>
+            <h1>useful commands</h1>
+            <p>run command will execute the script describe in package.json.</p>
+            <pre><code class="hljs" data-trim contenteditable>
+{
+  "name": "example1-environement",
+  "version": "1.0.0",
+  "description": "intall environement exercice",
+  "main": "index.js",
+  "scripts": {
+    "echo": "echo -e 'nothing to display, no script'"
+  },
+  "author": "jbpetit@excilys.com",
+  "license": "MIT"
+}
+                </code></pre>
+                        <pre><code class="hljs" data-trim contenteditable>
+npm run echo
+                </code></pre>
+        </section>
+        <section>
+            <h1>Webpack</h1>
+            <p>Webpack self defines as a module bundler. It a tool that permit to build and package our application. There is four important notion.</p>
+            <ul>
+                <li>entry</li>
+                <li>output</li>
+                <li>module</li>
+                <li>plugins</li>
+            </ul>
+        </section>
+        <section>
+            <h1>Webpack</h1>
+            <p>Config file example</p>
+            <pre><code class="hljs" data-trim contenteditable>
+var path = require("path");
+
+module.exports = { // This is just a commonJs Module
+    entry: {
+        app: ["./app.js"] // Entry point
+    },
+    output: {
+        path: path.resolve(__dirname, "package"), // Output dir
+        filename: "bundle.js"
+    },
+    module: {
+         // Load some modules
+    },
+    plugins: [
+         // Load some plugins
+    ]
+};
+            </code></pre>
+        </section>
+        <section>
+            <h1>Exercise 1</h1>
+        </section>
+        <section>
+            <h1>ES6</h1>
+            <p>ECMAScript 6 is the latest ECMAScript standard. It updates JS with necessary functionalities like arrows function, class, const, modules and more !</p>
+            <p>ES6 is not fully implemented in browser. Chrome desktop implement 98% of ES6 today - 2016/06.</p>
+            <pre><code class="hljs" data-trim contenteditable>
+var odds = evens.map(v => v + 1); // arrow function
+class Test extends Mamama { // class
+    constructor(){...}
+    ...
+}
+const TEST = "TEST" ; // const
+import * as math from "lib/math"; // import
+            </code></pre>
+        </section>
+        <section>
+            <h1>Babel</h1>
+            <p>Is a javascript "transpiler" it allow developer to write ES6 that can run on every web browser. It "transpile" also JSX, TypeScript and CoffeeScript.</p>
+            <pre><code class="hljs" data-trim contenteditable>
+[1,2,3].map(n => n + 1); // before babel
+
+[1,2,3].map(function(n) {
+  return n + 1; // after babel
+});
+            </code></pre>
+        </section>
+        <section>
+            <h1>JSHint</h1>
+            <p>"A Static Code Analysis Tool for JavaScript". Usable in webpack as a loader.</p>
+            <pre><code class="hljs" data-trim contenteditable>
+module.exports = {
+    entry: {},
+    output: {},
+    module: {
+        preLoaders: [
+             // JSHint loader goes here, DON'T forget to exclude node_modules.
+        ],
+        loaders: [
+            {test: /\.json$/, loader: 'json'},
+        ]
+    },
+    plugins: [],
+    jshint: {
+        undef: true, // JSHint property example
+        reporter: function (errors) { } // custom reporter
+    }};
+            </code></pre>
+        </section>
+        <section>
+            <h1>Lodash</h1>
+            <p>"A modern JavaScript utility library delivering modularity, performance, & extras."</p>
+            <pre><code class="hljs" data-trim contenteditable>
+_.camelCase("__FOO_BAR__");
+// → "fooBar"
+_.uniq([2, 1, 2]);
+// → [2, 1]
+var users = [
+  { user: "barney", age: 36, active: true },
+  { user: "fred",   age: 40, active: false }
+];
+_.filter(users, 'active');
+// → objects for ['barney']
+            </code></pre>
+        </section>
+        <section>
+            <h1>UglifyJs2</h1>
+            <p>"UglifyJS is a JavaScript parser, minifier, compressor or beautifier toolkit."</p>
+            <p></p>
+        </section>
+        <section>
+            <h1>Exercise 2</h1>
+        </section>
     </div>
 </div>
 <script src="lib/js/head.min.js"></script>
