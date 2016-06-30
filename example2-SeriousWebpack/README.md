@@ -19,4 +19,4 @@ Real use case of webpack, ES6 and babel.
 ES6, lodash, Uglify, Zip, Jshint working together on your environment.
 
 ## Bonus
-Do example 2.1 bonus.
+See example2-bonus.
