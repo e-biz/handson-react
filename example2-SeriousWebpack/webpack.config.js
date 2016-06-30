@@ -4,8 +4,7 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: {
-        app: ['./app/js/main.js'],
-        vendor: ['lodash']
+        app: ['./app/js/main.js']
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
