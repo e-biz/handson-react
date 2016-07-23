@@ -62,10 +62,10 @@ npm run echo
             <h1>Webpack</h1>
             <p>Webpack self defines as a module bundler. It a tool that permit to build and package our application. There is four important notion.</p>
             <ul>
-                <li>entry</li>
-                <li>output</li>
-                <li>module</li>
-                <li>plugins</li>
+                <li>entry - The entries point of your application.</li>
+                <li>output - Where webpack should output the code.</li>
+                <li>module - What kind of file webpack will load.</li>
+                <li>plugins - Enrich the build job with some plugins.</li>
             </ul>
         </section>
         <section>
@@ -120,25 +120,28 @@ import * as math from "lib/math"; // import
             </code></pre>
         </section>
         <section>
-            <h1>JSHint</h1>
-            <p>"A Static Code Analysis Tool for JavaScript". Usable in webpack as a loader.</p>
+            <h1>ESLint</h1>
+            <p>"The pluggable linting utility for JavaScript and JSX"</p>
             <pre><code class="hljs" data-trim contenteditable>
 module.exports = {
-    entry: {},
-    output: {},
-    module: {
-        preLoaders: [
-             // JSHint loader goes here, DON'T forget to exclude node_modules.
-        ],
-        loaders: [
-            {test: /\.json$/, loader: 'json'},
-        ]
+entry: {},
+output: {},
+module: {
+    preLoaders: [
+         // ESLint loader goes here, DON'T forget to exclude node_modules or you will try to Lint vendor library.
+    ],
+    loaders: []
+},
+plugins: [],
+eslint: {
+    rules: {
+        // Rules goes here
     },
-    plugins: [],
-    jshint: {
-        undef: true, // JSHint property example
-        reporter: function (errors) { } // custom reporter
-    }};
+    parserOptions: {
+        // options like the ecmascript version goes here
+        sourceType: 'module', // Tells ESLint that we use modules (like commonJs modules)
+    }
+}};
             </code></pre>
         </section>
         <section>

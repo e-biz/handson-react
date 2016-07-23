@@ -1,6 +1,7 @@
 # Hand on React - Webpack bonus
 
 ## Requirements
+Serious webpack is done.
 
 ## Instructions
 Multi-entry application.
