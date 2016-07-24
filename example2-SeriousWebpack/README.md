@@ -4,11 +4,11 @@
 Example 1 is done.
 
 ## Instructions
-Real use case of webpack, ES6 and babel.
+Real use case of webpack, ES6, babel and Lodash.
 
 1. Install the following dependencies: `babel-loader`, `babel-core`, `lodash` and `babel-preset-es2015`.
 2. Configure your `webpack.config.js` for using babel-loader with `es2015`.
-3. In your main.js file, use lodash for create a `<p><p>` for each element in the letters array (use arrow functions, ES6 style !).
+3. In your main.js file, use lodash (install it as dependency) for create a `<p><p>` for each element in the letters array (use arrow functions, ES6 style !).
 5. Install `eslint` and `eslint-loader`.
 6. Tell ESLint to fail on error and on warning (`eslint-loader` options). 
 7. Use ESLint in order to test the style of your code with `esversion` properties and `sourceType` with module (because we are in commonJS), `camelcase` rule and single `quote` rule.
