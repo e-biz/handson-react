@@ -54,18 +54,19 @@ npm install batman-dep
   "license": "MIT"
 }
                 </code></pre>
-                        <pre><code class="hljs" data-trim contenteditable>
+            <pre><code class="hljs" data-trim contenteditable>
 npm run echo
                 </code></pre>
         </section>
         <section>
             <h1>Webpack</h1>
-            <p>Webpack self defines as a module bundler. It a tool that permit to build and package our application. There is four important notion.</p>
+            <p>Webpack self defines as a module bundler. It a tool that permit to build and package our application.
+                There is four important notion.</p>
             <ul>
-                <li>entry</li>
-                <li>output</li>
-                <li>module</li>
-                <li>plugins</li>
+                <li>entry - The entries point of your application.</li>
+                <li>output - Where webpack should output the code.</li>
+                <li>module - What kind of file webpack will load.</li>
+                <li>plugins - Enrich the build job with some plugins.</li>
             </ul>
         </section>
         <section>
@@ -96,7 +97,8 @@ module.exports = { // This is just a commonJs Module
         </section>
         <section>
             <h1>ES6</h1>
-            <p>ECMAScript 6 is the latest ECMAScript standard. It updates JS with necessary functionalities like arrows function, class, const, modules and more !</p>
+            <p>ECMAScript 6 is the latest ECMAScript standard. It updates JS with necessary functionalities like arrows
+                function, class, const, modules and more !</p>
             <p>ES6 is not fully implemented in browser. Chrome desktop implement 98% of ES6 today - 2016/06.</p>
             <pre><code class="hljs" data-trim contenteditable>
 var odds = evens.map(v => v + 1); // arrow function
@@ -110,7 +112,8 @@ import * as math from "lib/math"; // import
         </section>
         <section>
             <h1>Babel</h1>
-            <p>Is a javascript "transpiler" it allow developer to write ES6 that can run on every web browser. It "transpile" also JSX, TypeScript and CoffeeScript.</p>
+            <p>Is a javascript "transpiler" it allow developer to write ES6 that can run on every web browser. It
+                "transpile" also JSX, TypeScript and CoffeeScript.</p>
             <pre><code class="hljs" data-trim contenteditable>
 [1,2,3].map(n => n + 1); // before babel
 
@@ -120,25 +123,28 @@ import * as math from "lib/math"; // import
             </code></pre>
         </section>
         <section>
-            <h1>JSHint</h1>
-            <p>"A Static Code Analysis Tool for JavaScript". Usable in webpack as a loader.</p>
+            <h1>ESLint</h1>
+            <p>"The pluggable linting utility for JavaScript and JSX"</p>
             <pre><code class="hljs" data-trim contenteditable>
 module.exports = {
-    entry: {},
-    output: {},
-    module: {
-        preLoaders: [
-             // JSHint loader goes here, DON'T forget to exclude node_modules.
-        ],
-        loaders: [
-            {test: /\.json$/, loader: 'json'},
-        ]
+entry: {},
+output: {},
+module: {
+    preLoaders: [
+         // ESLint loader goes here, DON'T forget to exclude node_modules or you will try to Lint vendor library.
+    ],
+    loaders: []
+},
+plugins: [],
+eslint: {
+    rules: {
+        // Rules goes here
     },
-    plugins: [],
-    jshint: {
-        undef: true, // JSHint property example
-        reporter: function (errors) { } // custom reporter
-    }};
+    parserOptions: {
+        // options like the ecmascript version goes here
+        sourceType: 'module', // Tells ESLint that we use modules (like commonJs modules)
+    }
+}};
             </code></pre>
         </section>
         <section>
@@ -164,6 +170,91 @@ _.filter(users, 'active');
         </section>
         <section>
             <h1>Exercise 2</h1>
+        </section>
+        <section>
+            <section>
+                <h1>React</h1>
+                <p>"A JAVASCRIPT LIBRARY FOR BUILDING USER INTERFACES"</p>
+            </section>
+            <section>
+                <h1>Advantages</h1>
+                <ul>
+                    <li>On prod @Facebook and @Instagram.</li>
+                    <li>Not a framework (like Angular).</li>
+                    <li>Can use as CommonJS module.</li>
+                    <li>Can write it with ES6.</li>
+                    <li>Really fast.</li>
+                    <li>Well documented.</li>
+                    <li>Easy to understand.</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Drawbacks</h1>
+                <ul>
+                    <li>Not a framework.</li>
+                    <li>JSX (ugly syntax).</li>
+                    <li>Write HTML with javascript means that robots (like those of Google) cannot read the documents.</li>
+                    <li>Component easier than Directive.</li>
+                    <li>Hard to well use.</li>
+                </ul>
+            </section>
+            <section>
+                <h1>React virtual DOM</h1>
+                <p>Guys @Facebook presumption are, DOM update is slow, but javascript is fast. With this principle, they have create a library that updates as little as possible the DOM. How ? By observing the changes in a JS (tree) representation of the DOM. Then with a diff algorithms, by updating only the part of the DOM's that needs one.</p>
+                <img data-src="https://risingstack-blog.s3-eu-west-1.amazonaws.com/2015/04/react-js-tutorial-2.png">
+            </section>
+            <section>
+                <h1>Create an element</h1>
+                <pre><code class="hljs" data-trim contenteditable>
+React.createElement('type of DOM element', props, 'text', childs...);
+                </code></pre>
+            </section>
+            <section>
+                <h1>Render an element</h1>
+                <pre><code class="hljs" data-trim contenteditable>
+ReactDom.render(elementToRender, DOMelementWhereToRender);
+                </code></pre>
+            </section>
+        </section>
+        <section>
+            <h1>Exercice 3</h1>
+        </section>
+        <section>
+            <h1>React, Angular 2, Vue.js</h1>
+            <p>Library/framowork of components.</p>
+            <p>Why ? Easier to maintain/split/work together.</p>
+        </section>
+        <section>
+            <h1>JSX</h1>
+            <p>Syntax for writing pseudo HTML in javascript. It replace the painful createElement.</p>
+            <pre><code class="hljs" data-trim contenteditable>
+
+var App = (
+  <Form>
+    <FormRow>
+      <FormLabel />
+      <FormInput />
+    </FormRow>
+  </Form>
+);
+ReactDom.render(App, document.getElementById('app'));
+            </code></pre>
+        </section>
+        <section>
+            <h1> Create a component</h1>
+            <pre><code class="hljs" data-trim contenteditable>
+class BatmanComponent extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+                //JSX here.
+                );
+    }
+}
+            </code></pre>
         </section>
     </div>
 </div>
