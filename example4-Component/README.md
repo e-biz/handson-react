@@ -1,4 +1,4 @@
-# Hand on React - HelloWorld
+# Hand on React - Component
 
 # Requirements
 Understanding the concept of Component. Example 3 done.

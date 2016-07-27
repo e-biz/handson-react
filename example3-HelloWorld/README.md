@@ -1,7 +1,7 @@
 # Hand on React - HelloWorld
 
 ## Requirements
-Understand the concept of virtual (why and how). Example 2 done.
+Understand the concept of virtual DOM (why and how). Example 2 done.
 
 ## Instructions
 
