@@ -16,8 +16,8 @@ Have a look at the model: `app/root/pokedex.json`.
 1. Fill the `PokemonRow` component:
     1. PokemonRow receive 3 properties to add in the constructor: the `name` of the pokemon to display, the `number` of the pokemon to display and callback (`selectPokemon`) to call when click on the desire pokemon.
     2. Create a method that will call this callback and bind it to this (no auto binding in ES6 so we have to do it manually).
-    3. Create the render method with row (<tr>) and a unique cell (<td>) when we click on the cell (`onClick`) it call the previously create method.
-    4. In the cell create a paragraph (<p>) that contains the number and the name of the pokemon.
+    3. Create the render method with row (`<tr>`) and a unique cell (`<td>`) when we click on the cell (`onClick`) it call the previously create method.
+    4. In the cell create a paragraph (`<p>`) that contains the number and the name of the pokemon.
     5. Style the paragraph (`className`) with a bulma class `notification`. Also with `is-success` if the PokemonRow is the selected one (use classNames: `classNames({is-success: myCondition})`).
     6. Test your component with `npm run test:row`.
 
