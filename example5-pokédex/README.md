@@ -58,6 +58,7 @@ Transform the PokemonRow, PokemonImage and PokemonDescription into stateless fun
 
 ## Expected results
 A simple pokédex.
+![Pokedex splited in React component](https://github.com/e-biz/handson-react/blob/solution/example5-pokédex/pokedexReactComponent.jpg)
 
 ## Documentation
 - [CheatSheet](http://reactcheatsheet.com/)
