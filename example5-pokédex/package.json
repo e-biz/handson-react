@@ -1,25 +1,38 @@
 {
-  "name": "example4-Component",
+  "name": "example5-Pokedex",
   "version": "1.0.0",
-  "description": "Play with react component",
+  "description": "Create a pokedex",
   "main": "index.js",
   "scripts": {
     "serve": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base app/root",
     "build": "node node_modules/webpack/bin/webpack.js",
-    "build:prod": "set NODE_ENV=production&& node node_modules/webpack/bin/webpack.js && zip -r dist.zip dist/"
+    "build:prod": "set NODE_ENV=production&& node node_modules/webpack/bin/webpack.js && zip -r dist.zip dist/",
+    "test:description": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-description-test.js",
+    "test:information": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-information-test.js",
+    "test:row": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-row-test.js",
+    "test:table": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-table-test.js",
+    "test:pokedex": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokedex-test.js",
+    "test:image": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-image-test.js"
   },
   "author": "jbpetit@excilys.com",
   "license": "MIT",
   "devDependencies": {
+    "babel": "^6.5.2",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
+    "babel-register": "^6.11.6",
+    "chai": "^3.5.0",
     "css-loader": "^0.23.1",
+    "enzyme": "^2.4.1",
     "eslint": "^3.1.1",
     "eslint-loader": "^1.4.1",
     "eslint-plugin-react": "^5.2.2",
+    "jsdom": "^9.4.1",
     "json-loader": "^0.5.4",
+    "mocha": "^2.5.3",
+    "react-addons-test-utils": "^15.2.1",
     "style-loader": "^0.13.1",
     "transfer-webpack-plugin": "^0.1.4",
     "uglify-loader": "^1.3.0",
@@ -27,9 +40,10 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "react": "^15.2.1",
+    "classnames": "^2.2.5",
     "lodash": "^4.13.1",
-    "react-dom": "^15.2.1",
-    "pills": "^1.0.1"
+    "react": "^15.2.1",
+    "bulma": "^0.1.0",
+    "react-dom": "^15.2.1"
   }
 }

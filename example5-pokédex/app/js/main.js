@@ -1,8 +1,8 @@
-import pills from 'pills';
+import bulma from 'bulma';
 import ReactDom from 'react-dom';
-import Pokedex from './components/pokedex'
+import React from 'react';
+import Pokedex from './pokedex'
 import pokemons from '../root/pokedex.json';
-
 
 ReactDom.render(
     <Pokedex pokemons={pokemons}/>,

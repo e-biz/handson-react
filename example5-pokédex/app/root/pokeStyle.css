@@ -1,7 +1,7 @@
 .pokemon-icon {
-    width: 16px;
-    height: 11px;
-    background:url("./pokemon-g1.jpg") no-repeat;
+    width: 130px;
+    height: 120px;
+    background: url("./pokemon-g1.jpg") no-repeat;
     display: inline-block;
 }
 

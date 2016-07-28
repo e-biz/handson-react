@@ -4,7 +4,9 @@ var webpack = require('webpack');
 
 var NODE_ENV = process.env.NODE_ENV;
 
-var resolve = {alias: {}};
+var resolve = {alias: {
+    bulma: 'bulma/css/bulma.css'
+}};
 
 var plugins = [
     new TransferWebpackPlugin([{from: 'app/root'}]),
@@ -28,7 +30,8 @@ if (NODE_ENV === 'production') {
         alias: {
             lodash: 'lodash/lodash.min.js',
             react: 'react/dist/react.min.js',
-            'react-dom': 'react-dom/dist/react-dom.min.js'
+            'react-dom': 'react-dom/dist/react-dom.min.js',
+            bulma: 'bulma/css/bulma.css'
         }
     };
 
@@ -38,7 +41,7 @@ if (NODE_ENV === 'production') {
 module.exports = {
     entry: {
         app: ['./app/js/main.js'],
-        vendor: ['lodash', 'react', 'react-dom']
+        vendor: ['lodash', 'react', 'react-dom', 'bulma']
     },
     resolve: resolve,
     output: {
