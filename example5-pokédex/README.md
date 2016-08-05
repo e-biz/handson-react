@@ -3,10 +3,10 @@
 ## Requirements
 Example4 done. 
 
-## Objectifs
+## Goals
 - Understand the difference between a reusable component (here `PokemonInformation`) and a "hierarchical component" (`PokemonTable`).
 - See how we can inverse the data flows (here between the row and the pokedex.)
-- Play a bit with CSS class in react (there are many other ways to deal with it... my favorite is CSS Modules).
+- Play a bit with CSS in react (there are many other ways to deal with it... my favorite is CSS Modules).
 
 ## Instructions
 Create a Pokédex with all the previous things learned.

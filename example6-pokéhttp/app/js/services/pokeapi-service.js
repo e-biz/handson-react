@@ -32,11 +32,11 @@ export default class PokeApi {
     }
 
     abort() {
-        if (this.request.abort) {
+        if (this.request && this.request.abort) {
             this.request.abort();
+            this.request = null;
         } else {
-            console.warn('Cannot abort request, because it does not exist.')
+            throw 'Cannot abort request, because it does not exist.';
         }
-        this.request = null;
     }
 }

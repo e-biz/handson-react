@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import PokeApi from '../services/PokeApi';
+import PokeApi from '../services/pokeapi-service';
 
 export default class TypeDescription extends Component {
     constructor(props) {
@@ -13,7 +13,11 @@ export default class TypeDescription extends Component {
     }
 
     componentWillUnmount() {
-        this.pokeApi.abort();
+        try {
+            this.pokeApi.abort();
+        } catch (error) {
+            console.warn(error);
+        }
     }
 
     render() {

@@ -1,7 +1,7 @@
-# Hand on React - Component
+# Hand on React - HelloWorld
 
 # Requirements
-Understanding the concept of Component. Example 3 done.
+Understanding the concept of Component. Example 2 done.
 
 # Instructions
 Real use case of two components by React. We want to display a table of HelloWorlds with two columns one for the country and one for the hello in the language separated by region.

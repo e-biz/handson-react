@@ -4,9 +4,11 @@ var webpack = require('webpack');
 
 var NODE_ENV = process.env.NODE_ENV;
 
-var resolve = {alias: {
-    bulma: 'bulma/css/bulma.css'
-}};
+var resolve = {
+    alias: {
+        bulma: 'bulma/css/bulma.css'
+    }
+};
 
 var plugins = [
     new TransferWebpackPlugin([{from: 'app/root'}]),

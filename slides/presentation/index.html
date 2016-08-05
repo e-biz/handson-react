@@ -206,7 +206,15 @@ _.filter(users, 'active');
             <section>
                 <h1>Create an element</h1>
                 <pre><code class="hljs" data-trim contenteditable>
-React.createElement('type of DOM element', props, 'text', childs...);
+React.createElement('type of DOM element', props, 'text', childsElement...);
+                </code></pre>
+            </section>
+            <section>
+                <h2>Create an element NOTE</h2>
+                <p>To modify the real DOM react need to know which element have been modify. If you want React render an array of element, each element need a unique key to be able to know which element have been changed.</p>
+                <p>A key is just a property of a react element.</p>
+                <pre><code class="hljs" data-trim contenteditable>
+React.createElement('type of DOM element', {key: 'blabla'}, 'text', childsElement...);
                 </code></pre>
             </section>
             <section>
@@ -227,18 +235,7 @@ ReactDom.render(elementToRender, DOMelementWhereToRender);
         <section>
             <h1>JSX</h1>
             <p>Syntax for writing pseudo HTML in javascript. It replace the painful createElement.</p>
-            <pre><code class="hljs" data-trim contenteditable>
-
-var App = (
-  <Form>
-    <FormRow>
-      <FormLabel />
-      <FormInput />
-    </FormRow>
-  </Form>
-);
-ReactDom.render(App, document.getElementById('app'));
-            </code></pre>
+            <img data-src="mypictures/JSXExample.JPG">
         </section>
         <section>
             <h1> Create a component</h1>
@@ -246,15 +243,78 @@ ReactDom.render(App, document.getElementById('app'));
 class BatmanComponent extends Component {
     constructor(props) {
         super(props);
+        this.jsPropertyToPass = props.jsPropertyToPass;
     }
 
     render() {
+        this.jsPropertyToPass.map(...);
         return (
                 //JSX here.
                 );
     }
 }
             </code></pre>
+        </section>
+        <section>
+            <h1>Exercice 4</h1>
+        </section>
+        <section>
+            <h1>CSS</h1>
+            <p>In order to add style to your component use the JSX attribute 'className'.</p>
+        </section>
+        <section>
+            <h1>classNames</h1>
+            <p>Do not manipulate class names by yourself. Use classNames library.</p>
+            <pre><code class="hljs" data-trim contenteditable>
+var classNames = require('classnames');
+
+classNames('foo', 'bar'); // => 'foo bar'
+classNames({ 'foo-bar': true }); // => 'foo-bar'
+classNames('foo', { bar: true }); // => 'foo bar'
+            </code></pre>
+        </section>
+        <section>
+            <h1>React children components</h1>
+            <p>Imagine you want to create a nav bar on top of your application. You can either add a nav component in all page component of your application, or you can create a generic component that hold the nav bar and some other unknown component.</p>
+            <p>In react, to access/display/modify this list of unknown components, you will use.</p>
+            <pre><code class="hljs" data-trim contenteditable>
+this.props.children;
+            </code></pre>
+        </section>
+        <section>
+            <h1>React children components</h1>
+            <p>Do NOT map or loop on the list of children by yourself because it is an opaque structure. Instead use.</p>
+            <pre><code class="hljs" data-trim contenteditable>
+React.Children.forEach(object children, function fn [, object thisArg]);
+React.Children.map(object children, function fn [, object thisArg]);
+            </code></pre>
+        </section>
+        <section>
+            <h1>Stateless function</h1>
+            <p>For better performance and code clarity, if your component do not need a state (an instance) you can create a statless component.</p>
+            <pre><code class="hljs" data-trim contenteditable>
+function HelloMessage(props) {
+  return <div>Hello {props.name}</div>;
+}
+ReactDOM.render(<HelloMessage name="Sebastian" />, mountNode);
+
+// or with ES6 arrow function
+const HelloMessage = (props) => <div>Hello {props.name}</div>;
+ReactDOM.render(<HelloMessage name="Sebastian" />, mountNode);
+            </code></pre>
+        </section>
+        <section>Exercise 5</section>
+        <section>
+            <h1>React router</h1>
+        </section>
+        <section>
+            <h1>Lifecycle component</h1>
+        </section>
+        <section>
+            <h1>Services and Superagent</h1>
+        </section>
+        <section>
+            <h1>Exercise 6</h1>
         </section>
     </div>
 </div>
