@@ -306,12 +306,34 @@ ReactDOM.render(<HelloMessage name="Sebastian" />, mountNode);
         <section>Exercise 5</section>
         <section>
             <h1>React router</h1>
+            <p>"A complete routing library for React."</p>
+            <pre><code class="hljs" data-trim contenteditable>
+render((
+  <Router history={browserHistory}>
+    <Route path="/" component={App}>
+        <IndexRoute component={Home}/> // Default route
+        <Route path="users" component={Users} /> // Users route
+        <Route path="/users/:userId" component={User}/> // User route with user ID as parameter
+        <Route path="*" component={NoMatch}/> // When no match 404 page.
+    </Route>
+  </Router>
+), document.getElementById('root'))
+            </code></pre>
         </section>
         <section>
-            <h1>Lifecycle component</h1>
+            <h1>Lifecycle component methods</h1>
+            <section>
+                <h1>componentWillMount()</h1>
+                <p>Invoked once, immediately before the initial rendering occurs. If you call setState within this method, render() will see the updated state and will be executed only once despite the state change.</p>
+            </section>
+            <section>
+                <h1>componentWillUnmount()</h1>
+                <p>Invoked immediately before a component is unmounted from the DOM. Perform any necessary cleanup in this method, such as invalidating timers or cleaning up any DOM elements that were created in componentDidMount.</p>
+            </section>
         </section>
         <section>
             <h1>Services and Superagent</h1>
+            <p></p>
         </section>
         <section>
             <h1>Exercise 6</h1>

@@ -1,10 +1,10 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
-import PokemonInformation from './components/pokemon-information';
-import PokemonTable from './components/pokemon-table';
-import PokemonImage from './components/pokemon-image'
-import PokemonDescription from './components/pokemon-description'
-import pokemons from '../root/pokedex.json';
+import PokemonInformation from './pokemon-information';
+import PokemonTable from './pokemon-table';
+import PokemonImage from './pokemon-image'
+import PokemonDescription from './pokemon-description'
+import pokemons from '../../root/pokedex.json';
 
 export default class Pokedex extends Component {
     constructor(props) {

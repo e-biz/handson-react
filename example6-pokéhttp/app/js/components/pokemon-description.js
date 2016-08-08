@@ -8,7 +8,7 @@ export default class PokemonDescription extends Component {
 
     link(pokemonType) {
         var linkName = 'type/' + pokemonType.toLowerCase();
-        return <Link to={linkName} activeClassName="active">{pokemonType}</Link>
+        return <Link to={linkName}>{pokemonType}</Link>
     }
 
     render() {

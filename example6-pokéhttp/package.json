@@ -10,7 +10,9 @@
     "test:404": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-not-found-test.js",
     "test:pokeapi": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokeapi-test.js",
     "test:type": "node node_modules/mocha/bin/mocha test/setup.js test/tests/type-table-test.js",
-    "test:description": "node node_modules/mocha/bin/mocha test/setup.js test/tests/type-description-test.js"
+    "test:configuration": "node node_modules/mocha/bin/mocha test/setup.js test/tests/configuration-test.js",
+    "test:description": "node node_modules/mocha/bin/mocha test/setup.js test/tests/type-description-test.js",
+    "test:pokedescription": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-description-test.js"
   },
   "author": "jbpetit@excilys.com",
   "license": "MIT",
