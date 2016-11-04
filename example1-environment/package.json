@@ -4,8 +4,8 @@
   "description": "intall environement exercice",
   "main": "index.js",
   "scripts": {
-    "serve": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base app/root",
-    "build": "node node_modules/webpack/bin/webpack.js"
+    "serve": "./node_modules/.bin/webpack-dev-server --content-base app/root",
+    "build": "./node_modules/.bin/webpack"
   },
   "author": "jbpetit@excilys.com",
   "license": "MIT",
