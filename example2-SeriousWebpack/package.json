@@ -4,9 +4,9 @@
   "description": "intall environement exercice",
   "main": "index.js",
   "scripts": {
-    "serve": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base app/root",
-    "build": "node node_modules/webpack/bin/webpack.js",
-    "build:prod": "set NODE_ENV=production&& node node_modules/webpack/bin/webpack.js && zip -r dist.zip dist/"
+    "serve": "./node_modules/.bin/webpack-dev-server --content-base app/root",
+    "build": "rm -rf dist && ./node_modules/.bin/webpack",
+    "build:prod": "rm -rf dist && set NODE_ENV=production && ./node_modules/.bin/webpack && zip -r dist.zip dist/"
   },
   "author": "jbpetit@excilys.com",
   "license": "MIT",
