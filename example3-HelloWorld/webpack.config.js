@@ -11,9 +11,18 @@ var plugins = [
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', Infinity)
 ];
 
-var loaders = [
-    {test: /\.json$/, loader: 'json'},
-    {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', query: {presets: ['es2015']}}
+var rules = [
+    {
+        test: /\.js$/,
+        enforce: 'pre',
+        exclude: /node_modules/,
+        use: ['eslint-loader'],
+        options: {
+            failOnWarning: false,
+            failOnError: true
+        }
+    },
+    {test: /\.js$/, exclude: /node_modules/, use: [{loader: 'babel-loader', options: {presets: ['es2015']}}]}
 ];
 
 if (NODE_ENV === 'production') {
@@ -29,7 +38,7 @@ if (NODE_ENV === 'production') {
         }
     };
 
-    loaders.splice(1, 0, {test: /\.js$/, exclude: /node_modules/, loader: 'uglify'}); // We must add this loader before babel loader because this loader is only for our source.
+    rules.unshift({test: /\.js$/, exclude: /node_modules/, use: ['uglify-loader']}); // We must add this loader before babel loader because this loader is only for our source.
 }
 
 module.exports = {
@@ -43,8 +52,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        preLoaders: [{test: /\.js$/, exclude: /node_modules/, loader: 'eslint-loader'}],
-        loaders: loaders,
+        rules
     },
     plugins: plugins,
     eslint: {

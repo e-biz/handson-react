@@ -7,5 +7,10 @@
     "test": "echo -e 'nothing to display, no script'"
   },
   "author": "jbpetit@excilys.com",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "transfer-webpack-plugin": "^0.1.4",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
+  }
 }

@@ -8,7 +8,7 @@ Real use case of two components by React. We want to display a table of HelloWor
 
 1. Import ReactDom from `react-dom` module, React and Component from `react`.
 2. Create 3 components, for the table, for the regional header and for the helloWorld row.
-3. Use `react`, `react-dom` and `lodash` .
+3. Use `react` and `react-dom`.
 4. Display the table using `npm run serve`.
 
 ## Expected Result
