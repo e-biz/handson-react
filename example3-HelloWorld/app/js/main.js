@@ -1,6 +1,5 @@
 import ReactDom from 'react-dom';
 import React from 'react';
-import _ from 'lodash';
 
 const helloWorlds = [
     {region: 'asia', country: 'Japan', hello: 'こんにちは'},
@@ -12,13 +11,13 @@ const helloWorlds = [
     {region: 'europa', country: 'Italy', hello: 'Ciao'},
     {region: 'america', country: 'Canada', hello: 'CréVindiou'},
     {region: 'america', country: 'USA', hello: 'Hello'},
-    {region: 'america', country: 'Mexico', hello: 'Hola'},
+    {region: 'america', country: 'Mexico', hello: 'Hola'}
 ];
 
-let rows = _.map(helloWorlds, helloworld => {
-    return React.createElement('p', {key: helloworld.hello}, helloworld.hello);
-});
+const rows = helloWorlds.map(helloworld =>
+    React.createElement('p', {key: helloworld.hello}, helloworld.hello)
+);
 
-var root = React.createElement('div', null, rows);
+const root = React.createElement('div', null, rows);
 
 ReactDom.render(root, document.getElementById('app'));

@@ -1,20 +1,45 @@
-var TransferWebpackPlugin = require('transfer-webpack-plugin');
-var path = require('path');
-var webpack = require('webpack');
+const TransferWebpackPlugin = require('transfer-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
-var NODE_ENV = process.env.NODE_ENV;
+const NODE_ENV = process.env.NODE_ENV;
 
-var resolve = {alias: {}};
+let resolve = {alias: {}};
 
-var plugins = [
+const plugins = [
     new TransferWebpackPlugin([{from: 'app/root'}]),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', Infinity)
+    new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        filename: 'vendor.js',
+        minChunks: Infinity
+    })
 ];
 
-var loaders = [
-    {test: /\.json$/, loader: 'json'},
-    {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', query: {presets: ['es2015', 'react']}}
+const rules = [
+    {
+        test: /\.jsx?$/,
+        enforce: "pre",
+        exclude: /node_modules/,
+        use: [{
+            loader :'eslint-loader',
+            options: {
+                failOnWarning: false,
+                failOnError: true
+            }
+        }]
+    },
+    {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: [{
+            loader: 'babel-loader',
+            options: {
+                presets: ['es2015', 'react']
+            }
+        }]
+    }
 ];
+
 
 if (NODE_ENV === 'production') {
     plugins.push(new webpack.DefinePlugin({
@@ -25,19 +50,23 @@ if (NODE_ENV === 'production') {
 
     resolve = {
         alias: {
-            lodash: 'lodash/lodash.min.js',
             react: 'react/dist/react.min.js',
             'react-dom': 'react-dom/dist/react-dom.min.js'
         }
     };
 
-    loaders.splice(1, 0, {test: /\.js$/, exclude: /node_modules/, loader: 'uglify'}); // We must add this loader before babel loader because this loader is only for our source.
+    // We must add this loader before babel loader because this loader is only for our source.
+    rules.unshift({
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['uglify-loader']
+    });
 }
 
-module.exports = {
+const config = {
     entry: {
         app: ['./app/js/main.js'],
-        vendor: ['lodash', 'react', 'react-dom']
+        vendor: ['react', 'react-dom']
     },
     resolve: resolve,
     output: {
@@ -45,27 +74,13 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        preLoaders: [
-            {test: /\.js$/, exclude: /node_modules/, loader: 'eslint-loader'}
-        ],
-        loaders: loaders,
+        rules
     },
-    plugins: plugins,
-    eslint: {
-        failOnWarning: false,
-        failOnError: true,
-        rules: {
-            quotes: ['error', 'single'],
-            camelcase: 2
-        },
-        parserOptions: {
-            ecmaVersion: 6,
-            sourceType: 'module',
-            ecmaFeatures: {
-                jsx: true
-            },
-            plugins: ["react"],
-            extends: ["eslint:recommended", "plugin:react/recommended"]
-        }
-    }
+    plugins: plugins
 };
+
+if (NODE_ENV !== 'production') {
+    config.devtool = "source-map";
+}
+
+module.exports = config;

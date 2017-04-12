@@ -33,7 +33,7 @@ Have a look at the model: `app/root/pokedex.json`.
     
 4. Fill the `PokemonTable` component:
     1. PokemonTable receive two properties to add in the constructor. The callback that the row will call to update the selected component (name it `selectPokemon`) and the list of pokemon (let's say pokemons).
-    2. Map (use lodash !) the list of pokemons into a list of `PokemonRow` (dont forgot the key).
+    2. Map the list of pokemons into a list of `PokemonRow` (dont forgot the key).
     3. Display this row in a table (`table>tbody`).
     4. Style the table with `table` and `is-bordered`.
     5. Test your component with `npm run test:table`

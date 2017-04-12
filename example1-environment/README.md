@@ -9,7 +9,7 @@ Install a working web developer environment with npm scripts, npm dependencies a
 1. Download and install [NodeJs](https://nodejs.org/en/download/current/).
 2. Extract your node package where you want.
 3. Add the /where/you/want/node-v[version]-linux-x64/bin to your $PATH.
-4. Install the following npm dependencies as dev-dependencies: `webpack-dev-server`, `json-loader`, `transfer-webpack-plugin` and `webpack`.
+4. Install the following npm dependencies as dev-dependencies: `webpack`, `webpack-dev-server` and `transfer-webpack-plugin`.
 5. Create a webpack.config.js with entry point `src/js/main.js` and output `bundle.js`.
 5. Launch the http server `webpack-dev-server` and specify to serve the directory `app/root/`.
 6. Create an npm script in order to launch with a short command line the server.
