@@ -24,7 +24,8 @@ const rules = [
             loader :'eslint-loader',
             options: {
                 failOnWarning: false,
-                failOnError: true}
+                failOnError: true
+            }
         }]
     },
     {
