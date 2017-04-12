@@ -10,9 +10,7 @@ module.exports = {
         filename: "bundle.js"
     },
     module: {
-        loaders: [
-            {test: /\.json$/, loader: "json"}
-        ]
+        rules: []
     },
     plugins: [
         new TransferWebpackPlugin([

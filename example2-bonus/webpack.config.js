@@ -12,9 +12,17 @@ module.exports = {
         filename: '[name]-bundle.js'
     },
     module: {
-        loaders: [
-            {test: /\.json$/, loader: 'json'},
-            {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', query: {presets: ['es2015']}}
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['es2015']
+                    }
+                }]
+            }
         ]
     },
     plugins: [
