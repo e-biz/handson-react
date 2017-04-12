@@ -1,22 +1,22 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import PokeApi from '../services/pokeapi-service';
 
-export default class TypeDescription extends Component {
+class TypeDescription extends Component {
     constructor(props) {
         super(props);
         this.pokeApi = new PokeApi();
-        this.state = {type: {}}
+        this.state = {type: {}};
     }
 
     componentDidMount() {
-        this.pokeApi.type(this.props.params.typeName, type => this.setState({type: type}), error => console.warn(error));
+        this.pokeApi.type(this.props.match.params.typeName, type => this.setState({type: type}), error => {throw new Error(error);});
     }
 
     componentWillUnmount() {
         try {
             this.pokeApi.abort();
         } catch (error) {
-            console.warn(error);
+            throw new Error(error);
         }
     }
 
@@ -33,3 +33,9 @@ export default class TypeDescription extends Component {
         );
     }
 }
+
+TypeDescription.propTypes = {
+    match: PropTypes.object
+};
+
+export default TypeDescription;

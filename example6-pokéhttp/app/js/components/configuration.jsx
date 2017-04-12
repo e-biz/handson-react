@@ -1,20 +1,21 @@
 import classNames from 'classnames';
-import React, {Component} from 'react';
-import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
+import React, {PropTypes} from 'react';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Pokedex from './pokedex';
 import PokemonNotFound from './pokemon-not-found';
 import TypeTable from './type-table';
 import TypeDescription from './type-description';
 
-const App = props => {
+const App = ({ match }) => {
+
     let classNameHome = classNames({
         'nav-item is-tab': true,
-        'is-active': props.location.pathname === '/'
+        'is-active': match.url === '/'
     });
 
     let classNameType = classNames({
         'nav-item is-tab': true,
-        'is-active': props.location.pathname === '/type'
+        'is-active': match.url === '/type'
     });
     return (
         <div>
@@ -24,19 +25,23 @@ const App = props => {
                     <Link className={classNameType} to="/type">Type of Pokemon</Link>
                 </div>
             </nav>
-            {props.children}
+            <Route exact path="/" component={Pokedex}/>
+            <Route path="/type" component={TypeTable}/>
+            <Route path="/type/:typeName" component={TypeDescription}/>
         </div>
     );
 };
 
-let PokeRouter = (
-    <Router history={browserHistory}>
-        <Route path='/' component={App}>
-            <IndexRoute component={Pokedex}/>
-            <Route path='/type' component={TypeTable}/>
-            <Route path='/type/:typeName' component={TypeDescription}/>
-            <Route path='*' component={PokemonNotFound}/>
-        </Route>
+App.propTypes = {
+    match: PropTypes.object
+};
+
+const PokeRouter = (
+    <Router>
+      <div>
+        <Route path='/' component={App} />
+        <Router path='*' component={PokemonNotFound} />
+      </div>
     </Router>
 );
 

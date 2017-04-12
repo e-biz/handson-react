@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import classNames from 'classnames';
 
-export default class PokemonRow extends Component {
+class PokemonRow extends Component {
     constructor(props) {
         super(props);
 
@@ -16,7 +16,7 @@ export default class PokemonRow extends Component {
     }
 
     render() {
-        var rowClass = classNames({
+        const rowClass = classNames({
             notification: true,
             'is-success': this.props.selectedPokemonNumber === this.number // We do not assign this.props.selectedPokemonNumber in a local variable because it changes and we dont want to have the init version of this value, we want the current value in pokedex.
         });
@@ -30,3 +30,12 @@ export default class PokemonRow extends Component {
         );
     }
 }
+
+PokemonRow.propTypes = {
+    name: PropTypes.string,
+    number: PropTypes.string,
+    selectPokemon: PropTypes.func,
+    selectedPokemonNumber: PropTypes.string
+};
+
+export default PokemonRow;

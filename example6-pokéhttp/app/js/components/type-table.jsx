@@ -1,24 +1,24 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 import _ from 'lodash';
 import PokeApi from '../services/pokeapi-service';
 
-export default class TypeTable extends Component {
+class TypeTable extends Component {
     constructor() {
         super();
         this.pokeApi = new PokeApi();
-        this.state = {types: []}
+        this.state = {types: []};
     }
 
     componentDidMount() {
-        this.pokeApi.types(types => this.setState({types: types.results}), error => console.warn(error));
+        this.pokeApi.types(types => this.setState({types: types.results}), error => {throw new Error(error);});
     }
 
     componentWillUnmount() {
         try {
             this.pokeApi.abort();
         } catch (error) {
-            console.warn(error);
+            throw new Error(error);
         }
     }
 
@@ -43,6 +43,8 @@ export default class TypeTable extends Component {
                     {types}
                 </tbody>
             </table>
-        )
+        );
     }
 }
+
+export default TypeTable;
