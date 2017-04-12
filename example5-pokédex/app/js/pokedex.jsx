@@ -1,15 +1,16 @@
-import _ from 'lodash';
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import PokemonInformation from './components/pokemon-information';
 import PokemonTable from './components/pokemon-table';
-import PokemonImage from './components/pokemon-image'
-import PokemonDescription from './components/pokemon-description'
+import PokemonImage from './components/pokemon-image';
+import PokemonDescription from './components/pokemon-description';
 
-export default class Pokedex extends Component {
+class Pokedex extends Component {
     constructor(props) {
         super(props);
         this.pokemons = props.pokemons;
-        this.state = {selectedPokemonNumber: this.pokemons[0].number};
+        this.state = {
+            selectedPokemonNumber: this.pokemons[0].number
+        };
         this.selectPokemon = this.selectPokemon.bind(this);
     }
 
@@ -18,8 +19,7 @@ export default class Pokedex extends Component {
     }
 
     render() {
-        var selectedPokemon = _(this.pokemons).filter({number: this.state.selectedPokemonNumber})
-                                              .first();
+        const selectedPokemon = this.pokemons.find(pokemon => pokemon.number === this.state.selectedPokemonNumber);
 
         return (
             <div className="columns">
@@ -37,3 +37,9 @@ export default class Pokedex extends Component {
         );
     }
 }
+
+Pokedex.propTypes = {
+    pokemons: PropTypes.array.isRequired
+};
+
+export default Pokedex;
