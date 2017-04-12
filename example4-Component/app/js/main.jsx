@@ -1,6 +1,5 @@
 import ReactDom from 'react-dom';
-import React, {Component} from 'react';
-import _ from 'lodash';
+import React, {Component, PropTypes} from 'react';
 
 class HelloWorldRow extends Component {
     constructor(props) {
@@ -19,6 +18,11 @@ class HelloWorldRow extends Component {
     }
 }
 
+HelloWorldRow.propTypes = {
+    country: PropTypes.string.isRequired,
+    hello: PropTypes.string.isRequired
+};
+
 class HelloWorldHeader extends Component {
     constructor(props) {
         super(props);
@@ -28,12 +32,15 @@ class HelloWorldHeader extends Component {
     render() {
         return (
             <tr>
-                <td>{this.name}</td>
-                <td></td>
+                <td colSpan="2">{this.name}</td>
             </tr>
         );
     }
 }
+
+HelloWorldHeader.propTypes= {
+    name: PropTypes.string.isRequired
+};
 
 class HelloWorldTable extends Component {
     constructor(props) {
@@ -43,18 +50,18 @@ class HelloWorldTable extends Component {
 
     render() {
         let regionDelimiter;
-        let rows = [];
+        const rows = [];
 
-        _.each(this.helloWorlds, helloWorld => {
+        this.helloWorlds.forEach(helloWorld => {
             if (regionDelimiter !== helloWorld.region) {
                 regionDelimiter = helloWorld.region;
                 rows.push(<HelloWorldHeader name={helloWorld.region} key={helloWorld.region}/>);
                 rows.push(<HelloWorldRow country={helloWorld.country} hello={helloWorld.hello} key={helloWorld.hello}/>);
-                return;
+            } else {
+                rows.push(<HelloWorldRow country={helloWorld.country} hello={helloWorld.hello} key={helloWorld.hello}/>);
             }
-            regionDelimiter = helloWorld.region;
-            rows.push(<HelloWorldRow country={helloWorld.country} hello={helloWorld.hello} key={helloWorld.hello}/>);
         });
+
         return (
             <table>
                 <thead>
@@ -64,12 +71,16 @@ class HelloWorldTable extends Component {
                 </tr>
                 </thead>
                 <tbody>
-                {rows}
+                    {rows}
                 </tbody>
             </table>
         );
     }
 }
+
+HelloWorldTable.propTypes= {
+    helloWorlds: PropTypes.string.isRequired
+};
 
 const helloWorlds = [
     {region: 'asia', country: 'Japan', hello: 'こんにちは'},
@@ -81,7 +92,7 @@ const helloWorlds = [
     {region: 'europa', country: 'Italy', hello: 'Ciao'},
     {region: 'america', country: 'Canada', hello: 'CréVindiou'},
     {region: 'america', country: 'USA', hello: 'Hello'},
-    {region: 'america', country: 'Mexico', hello: 'Hola'},
+    {region: 'america', country: 'Mexico', hello: 'Hola'}
 ];
 
 ReactDom.render(
