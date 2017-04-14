@@ -1,7 +1,7 @@
 import React from 'react';
 import {expect} from 'chai';
 import {shallow, mount, render} from 'enzyme';
-import PokemonDescription from '../../app/js/components/pokemon-description';
+import PokemonDescription from '../../app/js/components/list/pokemon-description';
 
 describe('PokemonDescription suite', function () {
     it('should contains description text', () => {

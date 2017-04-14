@@ -49,7 +49,6 @@ if (NODE_ENV === 'production') {
 
     resolve = {
         alias: {
-            lodash: 'lodash/lodash.min.js',
             react: 'react/dist/react.min.js',
             'react-dom': 'react-dom/dist/react-dom.min.js'
         }
@@ -66,7 +65,7 @@ if (NODE_ENV === 'production') {
 module.exports = {
     entry: {
         app: ['./app/js/main.js'],
-        vendor: ['lodash', 'react', 'react-dom']
+        vendor: ['react', 'react-dom']
     },
     resolve: resolve,
     output: {

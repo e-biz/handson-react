@@ -2,7 +2,7 @@ import React from 'react';
 import {expect} from 'chai';
 import {shallow, mount, render} from 'enzyme';
 import nock from 'nock';
-import TypeTable from '../../app/js/components/type-table';
+import TypeTable from '../../app/js/components/type/type-table';
 
 describe('TypeTable suite', function () {
     var response = {

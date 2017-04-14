@@ -2,7 +2,7 @@ import React from 'react';
 import {expect} from 'chai';
 import {shallow, mount, render} from 'enzyme';
 import nock from 'nock';
-import TypeDescription from '../../app/js/components/type-description';
+import TypeDescription from '../../app/js/components/type/type-description';
 
 describe('PokemonNotFound suite', function () {
 
