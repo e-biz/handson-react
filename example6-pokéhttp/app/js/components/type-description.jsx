@@ -1,5 +1,7 @@
+import 'react-progress-2/main.css';
 import React, {Component, PropTypes} from 'react';
 import PokeApi from '../services/pokeapi-service';
+import Progress from 'react-progress-2';
 
 class TypeDescription extends Component {
     constructor(props) {
@@ -9,7 +11,13 @@ class TypeDescription extends Component {
     }
 
     componentDidMount() {
-        this.pokeApi.type(this.props.match.params.typeName, type => this.setState({type: type}), error => {throw new Error(error);});
+        Progress.show();
+        this.pokeApi.type(this.props.params.typeName,
+                          type => {
+                              this.setState({type: type});
+                              Progress.hide();
+                          },
+                          error => {throw new Error(error);});
     }
 
     componentWillUnmount() {
@@ -26,6 +34,7 @@ class TypeDescription extends Component {
                 <div className="message-header">
                     {this.state.type.name}
                 </div>
+                <Progress.Component/>
                 <div className="message-body">
                     {JSON.stringify(this.state.type, null, 2)}
                 </div>
@@ -35,7 +44,7 @@ class TypeDescription extends Component {
 }
 
 TypeDescription.propTypes = {
-    match: PropTypes.object
+    params: PropTypes.object
 };
 
 export default TypeDescription;

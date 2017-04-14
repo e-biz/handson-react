@@ -73,10 +73,10 @@ if (NODE_ENV === 'production') {
     });
 }
 
-module.exports = {
+const config = {
     entry: {
         app: ['./app/js/main.js'],
-        vendor: ['lodash', 'react', 'react-dom', 'bulma']
+        vendor: ['react', 'react-dom', 'bulma']
     },
     resolve: resolve,
     output: {
@@ -89,3 +89,9 @@ module.exports = {
     },
     plugins: plugins
 };
+
+if (NODE_ENV !== 'production') {
+    config.devtool = "source-map";
+}
+
+module.exports = config;

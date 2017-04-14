@@ -10,7 +10,7 @@ Example5 done.
 
 ## Instructions
 
-1. Install `react-router` as dependency.
+1. Install `react-router@2.8.1` as dependency.
 2. Install `superagent` as dependency.
 
 3. Create PokemonNotFound stateless functions component:

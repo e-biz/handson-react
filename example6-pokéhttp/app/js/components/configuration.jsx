@@ -1,21 +1,21 @@
 import classNames from 'classnames';
 import React, {PropTypes} from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {browserHistory, IndexRoute, Router,  Route, Link} from 'react-router';
 import Pokedex from './pokedex';
 import PokemonNotFound from './pokemon-not-found';
 import TypeTable from './type-table';
 import TypeDescription from './type-description';
 
-const App = ({ match }) => {
+const App = props => {
 
-    let classNameHome = classNames({
+    const classNameHome = classNames({
         'nav-item is-tab': true,
-        'is-active': match.url === '/'
+        'is-active': props.location.pathname === '/'
     });
 
-    let classNameType = classNames({
+    const classNameType = classNames({
         'nav-item is-tab': true,
-        'is-active': match.url === '/type'
+        'is-active': props.location.pathname === '/type'
     });
     return (
         <div>
@@ -25,24 +25,25 @@ const App = ({ match }) => {
                     <Link className={classNameType} to="/type">Type of Pokemon</Link>
                 </div>
             </nav>
-            <Route exact path="/" component={Pokedex}/>
-            <Route path="/type" component={TypeTable}/>
-            <Route path="/type/:typeName" component={TypeDescription}/>
+            {props.children}
         </div>
     );
 };
 
 App.propTypes = {
-    match: PropTypes.object
+    children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
+    location: PropTypes.object
 };
 
 const PokeRouter = (
-    <Router>
-      <div>
-        <Route path='/' component={App} />
-        <Router path='*' component={PokemonNotFound} />
-      </div>
-    </Router>
+  <Router history={browserHistory}>
+      <Route path="/" component={App}>
+          <IndexRoute component={Pokedex}/>
+          <Route path="/type" component={TypeTable}/>
+          <Route path="/type/:typeName" component={TypeDescription}/>
+          <Route path="*" component={PokemonNotFound}/>
+      </Route>
+  </Router>
 );
 
 export {App, PokeRouter};

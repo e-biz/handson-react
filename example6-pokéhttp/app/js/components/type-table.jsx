@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import _ from 'lodash';
+import {Link} from 'react-router';
 import PokeApi from '../services/pokeapi-service';
 
 class TypeTable extends Component {
@@ -23,7 +22,7 @@ class TypeTable extends Component {
     }
 
     render() {
-        let types = _.map(this.state.types, (type, index) => {
+        let types = this.state.types.map((type, index) => {
             let href = '/type/' + type.name;
             return (
                 <tr key={index}>

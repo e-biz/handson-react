@@ -11,7 +11,7 @@ Real use case of webpack, ES6, babel and Lodash.
 3. In your main.js file, use lodash (install it as dependency) for create a `<p><p>` for each element in the letters array (use arrow functions, ES6 style !).
 5. Install `eslint` and `eslint-loader`.
 6. Tell ESLint to fail on error and on warning (`eslint-loader` options). 
-7. Use ESLint in order to test the style of your code with `esversion` properties and `sourceType` with module (because we are in commonJS), `camelcase` rule and single `quote` rule.
+7. Use ESLint in order to test the style of your code with `esversion` properties and `sourceType` with module (because we are in commonJS), `camelcase` rule and single `quote` rule. Init the `.eslintrc.json` with the command `./node_modules/.bin/eslint --init`
 8. Split your code: extract `vendor` code in an other file, using `CommonsChunkPlugin` and a vendor entry point in `webpack.config.js`.
 9. Create a npm script `build:prod` that build AND add your dist package in a zip archive.
 
@@ -20,7 +20,7 @@ Second step, minify and uglify OUR source in production mode and use already min
 10. Retrieve the `NODE_ENV` environment variable, `process.env`;
 11. When `NODE_ENV` is set to production, create a alias for bundle `lodash` that point to it's minified version in `node_modules`, `lodash/lodash.min.js`;
 12. Install the `uglify-loader` as dev-dependency.
-12. When `NODE_ENV` is set to production, add in the list of loaders the uglify loader. BEWARE ! It MUST be add before babel loader because we only want to uglify our source. You can use `splice`.
+12. When `NODE_ENV` is set to production, add in the list of loaders the uglify loader. BEWARE ! It MUST be add before babel loader because we only want to uglify our source. You can use `unshift`.
 13. When `NODE_ENV` is set to production, use the `DefinePlugin` in order to define a global variable `NODE_ENV` that contains `production` as value. Some library like React use this value in order to exclude test helpers at transpile/compile time.
 14. Modify the npm script `build:prod` in order to set `NODE_ENV` to `production` before the execution of the command.
 

@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {Link} from 'react-router-dom';
+import {Link} from 'react-router';
 
 class PokemonDescription extends Component {
     constructor(props) {

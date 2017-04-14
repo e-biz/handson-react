@@ -63,9 +63,9 @@ if (NODE_ENV === 'production') {
     });
 }
 
-module.exports = {
+const config = {
     entry: {
-        app: ['./app/js/main.jsx'],
+        app: ['./app/js/main.js'],
         vendor: ['react', 'react-dom']
     },
     resolve: resolve,
@@ -78,3 +78,9 @@ module.exports = {
     },
     plugins: plugins
 };
+
+if (NODE_ENV !== 'production') {
+    config.devtool = "source-map";
+}
+
+module.exports = config;
