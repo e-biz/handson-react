@@ -4,7 +4,7 @@ const webpack = require('webpack');
 
 const NODE_ENV = process.env.NODE_ENV;
 
-let resolve = {alias: {}};
+let resolve = {alias: {}, extensions: ['.js', '.jsx']};
 
 const plugins = [
     new TransferWebpackPlugin([{from: 'app/root'}]),
@@ -47,13 +47,10 @@ if (NODE_ENV === 'production') {
         }
     }));
 
-    resolve = {
-        alias: {
-            lodash: 'lodash/lodash.min.js'
-        }
-    };
+    Object.assign(resolve.alias, {
+        lodash: 'lodash/lodash.min.js'
+    });
 
-    // We must add this loader before babel loader because this loader is only for our source.
     rules.unshift({
         test: /\.js$/,
         exclude: /node_modules/,

@@ -65,7 +65,7 @@ if (NODE_ENV === 'production') {
 
 const config = {
     entry: {
-        app: ['./app/js/main.js'],
+        app: ['./app/js/main.jsx'],
         vendor: ['react', 'react-dom']
     },
     resolve: resolve,

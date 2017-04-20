@@ -17,7 +17,7 @@ const plugins = [
 
 const rules = [
     {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         enforce: "pre",
         exclude: /node_modules/,
         use: [{
@@ -29,7 +29,7 @@ const rules = [
         }]
     },
     {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [{
             loader: 'babel-loader',
@@ -47,15 +47,12 @@ if (NODE_ENV === 'production') {
         }
     }));
 
-    resolve = {
-        alias: {
-            lodash: 'lodash/lodash.min.js'
-        }
-    };
+    Object.assign(resolve.alias, {
+        lodash: 'lodash/lodash.min.js'
+    });
 
-    // We must add this loader before babel loader because this loader is only for our source.
     rules.unshift({
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: ['uglify-loader']
     });

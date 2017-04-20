@@ -7,7 +7,7 @@ Understand the concept of virtual (why and how). Example 2 done.
 
 1. Install `babel-preset-react` and `eslint-plugin-react` as dev dependencies.
 2. Install `react` and `react-dom` as dependencies.
-3. In `webpack.config.js` configure eslint to use jsx, to use the `eslint-plugin-react` and to extends the recommended configuration of `eslint-react-plugin`.
+3. In `.eslintrc.json` configure the linter to use jsx, to use the `eslint-plugin-react` and to extends the recommended configuration of `eslint-react-plugin`.
 4. In `production` mode resolve the `react` and `react-dom` with theirs minimised version.
 5. Map helloWorlds list into a list of react element paragraph using `React.createElement()` method, in the props, add a key with the value of `hello`.
 6. Create a root element that has the previously create list of react elements as child using `React.createElement()`.
