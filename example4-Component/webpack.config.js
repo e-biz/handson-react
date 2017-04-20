@@ -1,28 +1,43 @@
-var TransferWebpackPlugin = require('transfer-webpack-plugin');
-var path = require('path');
-var webpack = require('webpack');
+const TransferWebpackPlugin = require('transfer-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
-var NODE_ENV = process.env.NODE_ENV;
+const NODE_ENV = process.env.NODE_ENV;
 
-var resolve = {alias: {}};
+let resolve = {alias: {}};
 
-var plugins = [
+const plugins = [
     new TransferWebpackPlugin([{from: 'app/root'}]),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', Infinity)
+    new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        filename: 'vendor.js',
+        minChunks: Infinity
+    })
 ];
 
-var rules = [
+const rules = [
     {
         test: /\.js$/,
-        enforce: 'pre',
+        enforce: "pre",
         exclude: /node_modules/,
-        use: ['eslint-loader'],
-        options : {
-            failOnWarning: false,
-            failOnError: true
-        }
+        use: [{
+            loader :'eslint-loader',
+            options: {
+                failOnWarning: false,
+                failOnError: true
+            }
+        }]
     },
-    {test: /\.js$/, exclude: /node_modules/, use: [{loader: 'babel-loader', options: {presets: ['es2015']}}]}
+    {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [{
+            loader: 'babel-loader',
+            options: {
+                presets: ['es2015']
+            }
+        }]
+    }
 ];
 
 if (NODE_ENV === 'production') {
@@ -34,19 +49,22 @@ if (NODE_ENV === 'production') {
 
     resolve = {
         alias: {
-            lodash: 'lodash/lodash.min.js',
-            react: 'react/dist/react.min.js',
-            'react-dom': 'react-dom/dist/react-dom.min.js'
+            lodash: 'lodash/lodash.min.js'
         }
     };
 
-    rules.unshift({test: /\.js$/, exclude: /node_modules/, use: ['uglify-loader']}); // We must add this loader before babel loader because this loader is only for our source.
+    // We must add this loader before babel loader because this loader is only for our source.
+    rules.unshift({
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['uglify-loader']
+    });
 }
 
 module.exports = {
     entry: {
         app: ['./app/js/main.js'],
-        vendor: ['lodash', 'react', 'react-dom']
+        vendor: ['lodash']
     },
     resolve: resolve,
     output: {
