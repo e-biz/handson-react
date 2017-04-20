@@ -4,7 +4,10 @@ const webpack = require('webpack');
 
 const NODE_ENV = process.env.NODE_ENV;
 
-let resolve = {alias: {}};
+let resolve = {
+    alias: {},
+    extensions: ['.js', '.jsx']
+};
 
 const plugins = [
     new TransferWebpackPlugin([{from: 'app/root'}]),
@@ -40,7 +43,6 @@ const rules = [
     }
 ];
 
-
 if (NODE_ENV === 'production') {
     plugins.push(new webpack.DefinePlugin({
         'process.env': {
@@ -48,16 +50,14 @@ if (NODE_ENV === 'production') {
         }
     }));
 
-    resolve = {
-        alias: {
-            react: 'react/dist/react.min.js',
-            'react-dom': 'react-dom/dist/react-dom.min.js'
-        }
-    };
+    Object.assign(resolve.alias, {
+        react: 'react/dist/react.min.js',
+        'react-dom': 'react-dom/dist/react-dom.min.js'
+    });
 
     // We must add this loader before babel loader because this loader is only for our source.
     rules.unshift({
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: ['uglify-loader']
     });
