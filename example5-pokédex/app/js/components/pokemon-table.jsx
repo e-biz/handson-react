@@ -26,7 +26,7 @@ class PokemonTable extends Component {
 
 PokemonTable.propTypes = {
     pokemons: PropTypes.object,
-    selectPokemon: PropTypes.object,
+    selectPokemon: PropTypes.func,
     selectedPokemonNumber: PropTypes.object
 };
 

@@ -79,7 +79,7 @@ class HelloWorldTable extends Component {
 }
 
 HelloWorldTable.propTypes= {
-    helloWorlds: PropTypes.string.isRequired
+    helloWorlds: PropTypes.array.isRequired
 };
 
 const helloWorlds = [

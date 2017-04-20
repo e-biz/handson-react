@@ -66,7 +66,7 @@ if (NODE_ENV === 'production') {
 
     // We must add this loader before babel loader because this loader is only for our source.
     rules.unshift({
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: ['uglify-loader']
     });
@@ -74,7 +74,7 @@ if (NODE_ENV === 'production') {
 
 const config = {
     entry: {
-        app: ['./app/js/main.js'],
+        app: ['./app/js/main.jsx'],
         vendor: ['react', 'react-dom', 'bulma']
     },
     resolve: resolve,
