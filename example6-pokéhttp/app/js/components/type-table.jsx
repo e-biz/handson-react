@@ -5,7 +5,7 @@ import PokeApi from '../services/pokeapi-service';
 class TypeTable extends Component {
     constructor() {
         super();
-        this.pokeApi = new PokeApi();
+        this.pokeApi = new PokeApi(); // we get the service
     }
 
     componentDidMount() {

@@ -12,7 +12,7 @@ describe('PokemonDescription suite', function () {
             type: 'Grass',
             secondType: 'Poison'
         };
-        var description = mount(<PokemonDescription pokemon={bulbasaur}/>);
+        var description = shallow(<PokemonDescription pokemon={bulbasaur}/>);
         expect(description.text()).to.equal('Bulbasaur is a Pokemon of type Grass and Poison. It has the number #001');
     });
 
@@ -26,17 +26,5 @@ describe('PokemonDescription suite', function () {
         };
         var description = shallow(<PokemonDescription pokemon={bulbasaur}/>);
         expect(description.find('p')).to.have.length(1);
-    });
-
-    it('should have a link to the pokemon description type', () => {
-        let bulbasaur = {
-            style: 'n1',
-            number: '#001',
-            name: 'Bulbasaur',
-            type: 'Grass',
-            secondType: 'Poison'
-        };
-        var description = mount(<PokemonDescription pokemon={bulbasaur}/>);
-        expect(description.find('a')).to.have.length(2);
     });
 });
