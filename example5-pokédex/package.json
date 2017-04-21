@@ -8,11 +8,12 @@
     "build": "node node_modules/webpack/bin/webpack.js",
     "build:prod": "set NODE_ENV=production&& node node_modules/webpack/bin/webpack.js && zip -r dist.zip dist/",
     "test:NotFound": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-not-found-test.js",
-    "test:pokeapi": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokeapi-test.js",
-    "test:type": "node node_modules/mocha/bin/mocha test/setup.js test/tests/type-table-test.js",
-    "test:configuration": "node node_modules/mocha/bin/mocha test/setup.js test/tests/configuration-test.js",
-    "test:description": "node node_modules/mocha/bin/mocha test/setup.js test/tests/type-description-test.js",
-    "test:pokedescription": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-description-test.js"
+    "test:row": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-row-test.js",
+    "test:image": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-image-test.js",
+    "test:description": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-description-test.js",
+    "test:table": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-table-test.js",
+    "test:information": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-information-test.js",
+    "test:pokedex": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokedex-test.js"
   },
   "author": "jbpetit@excilys.com",
   "license": "MIT",

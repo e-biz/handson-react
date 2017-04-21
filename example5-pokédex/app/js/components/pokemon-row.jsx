@@ -13,7 +13,7 @@ class PokemonRow extends Component {
 PokemonRow.propTypes = {
     name: PropTypes.string,
     number: PropTypes.string,
-    selectPokemon: PropTypes.object,
+    selectPokemon: PropTypes.func,
     selectedPokemonNumber: PropTypes.string
 };
 
