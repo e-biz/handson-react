@@ -4,13 +4,10 @@
   "description": "intall environement exercice",
   "main": "index.js",
   "scripts": {
-    "test": "echo -e 'nothing to display, no script'"
+    "serve": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --history-api-fallback --content-base app/root",
   },
   "author": "jbpetit@excilys.com",
   "license": "MIT",
   "devDependencies": {
-    "transfer-webpack-plugin": "^0.1.4",
-    "webpack": "^2.3.3",
-    "webpack-dev-server": "^2.4.2"
   }
 }
