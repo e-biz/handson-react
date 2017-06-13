@@ -2,32 +2,77 @@ const TransferWebpackPlugin = require('transfer-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
-const NODE_ENV = 'dev'; // we set the variable (Maybe we will need to get a env var with process.env.ENV_VAR)
+const NODE_ENV = process.env.NODE_ENV;
 
-// Here, we define the rules use in modules
-const rules = [];
-// Here, we define the pluggings to use
-const plugins = [];
+let resolve = {alias: {}};
+
+const plugins = [
+    new TransferWebpackPlugin([{from: 'app/root'}]),
+    new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        filename: 'vendor.js',
+        minChunks: Infinity
+    })
+];
+
+const rules = [
+    {
+        test: /\.js$/,
+        enforce: "pre",
+        exclude: /node_modules/,
+        use: [{
+            loader :'eslint-loader',
+            options: {
+                failOnWarning: false,
+                failOnError: true
+            }
+        }]
+    },
+    {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [{
+            loader: 'babel-loader',
+            options: {
+                presets: ['es2015']
+            }
+        }]
+    }
+];
 
 if (NODE_ENV === 'production') {
-    // Do some cool stuff like uglify, minify...
-    // We might want to play with rules or plugins
+    plugins.push(new webpack.DefinePlugin({
+        'process.env': {
+            NODE_ENV: JSON.stringify(NODE_ENV) // Some library like React use this value in order to exclude test helpers
+        }
+    }));
+
+    resolve = {
+        alias: {
+            lodash: 'lodash/lodash.min.js'
+        }
+    };
+    
+    // We must add this loader before babel loader because this loader is only for our source.
+    rules.unshift({
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['uglify-loader']
+    });
 }
 
 module.exports = {
-    // Entry point of you app
     entry: {
-        app: ['./app/js/main.js']
+        app: ['./app/js/main.js'],
+        vendor: ['lodash']
     },
-    // Output of webpack
+    resolve: resolve,
     output: {
-        path: path.resolve(__dirname, 'dist'), // Output directory
-        filename: 'bundle.js' // Bundle name
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js'
     },
-    // Here, we define the different loader to use on the different type of file
     module: {
-        rules // This is an ES6 way to write "rules: rules"
+        rules
     },
-    // Here, we specify the pluggins we want to apply
-    plugins
+    plugins: plugins
 };

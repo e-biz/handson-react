@@ -7,6 +7,9 @@ class PokemonImage extends Component {
     }
 
     render() {
+        const className = classNames('pokemon-icon', this.props.pokeStyle);
+
+        return <span className={className}>{this.props.name}</span>;
     }
 }
 

@@ -17,7 +17,7 @@ const plugins = [
 
 const rules = [
     {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         enforce: "pre",
         exclude: /node_modules/,
         use: [{
@@ -29,7 +29,7 @@ const rules = [
         }]
     },
     {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: [{
             loader: 'babel-loader',
@@ -47,21 +47,25 @@ if (NODE_ENV === 'production') {
         }
     }));
 
-    Object.assign(resolve.alias, {
-        lodash: 'lodash/lodash.min.js'
-    });
+    resolve = {
+        alias: {
+            react: 'react/dist/react.min.js',
+            'react-dom': 'react-dom/dist/react-dom.min.js'
+        }
+    };
 
+    // We must add this loader before babel loader because this loader is only for our source.
     rules.unshift({
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: ['uglify-loader']
     });
 }
 
-module.exports = {
+const config = {
     entry: {
         app: ['./app/js/main.js'],
-        vendor: ['lodash']
+        vendor: ['react', 'react-dom']
     },
     resolve: resolve,
     output: {
@@ -73,3 +77,9 @@ module.exports = {
     },
     plugins: plugins
 };
+
+if (NODE_ENV !== 'production') {
+    config.devtool = "source-map";
+}
+
+module.exports = config;

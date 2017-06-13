@@ -75,7 +75,7 @@ if (NODE_ENV === 'production') {
 
 const config = {
     entry: {
-        app: ['./app/js/main.jsx'],
+        app: ['./app/js/main.js'],
         vendor: ['react', 'react-dom', 'bulma']
     },
     resolve: resolve,

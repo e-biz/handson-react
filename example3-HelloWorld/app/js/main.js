@@ -1,4 +1,5 @@
-import _ from 'lodash';
+import ReactDom from 'react-dom';
+import React from 'react';
 
 const helloWorlds = [
     {region: 'asia', country: 'Japan', hello: 'こんにちは'},
@@ -12,3 +13,11 @@ const helloWorlds = [
     {region: 'america', country: 'USA', hello: 'Hello'},
     {region: 'america', country: 'Mexico', hello: 'Hola'}
 ];
+
+const rows = helloWorlds.map(helloworld =>
+    React.createElement('p', {key: helloworld.hello}, helloworld.hello)
+);
+
+const root = React.createElement('div', null, rows);
+
+ReactDom.render(root, document.getElementById('app'));

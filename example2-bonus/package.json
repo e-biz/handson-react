@@ -1,15 +1,20 @@
 {
-  "name": "example1-environement",
+  "name": "example2-bonus",
   "version": "1.0.0",
   "description": "intall environement exercice",
   "main": "index.js",
   "scripts": {
     "serve": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base app/root",
-    "build": "node node_modules/webpack/bin/webpack.js"
+    "build": "node node_modules/webpack/bin/webpack.js",
+    "build:prod": "set NODE_ENV=production&& node node_modules/webpack/bin/webpack.js && zip -r dist.zip dist/"
   },
   "author": "jbpetit@excilys.com",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
+    "json-loader": "^0.5.4",
     "transfer-webpack-plugin": "^0.1.4",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"

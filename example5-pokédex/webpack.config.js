@@ -4,9 +4,11 @@ const webpack = require('webpack');
 
 const NODE_ENV = process.env.NODE_ENV;
 
-let resolve = {
-    alias: {},
-    extensions: ['.js', '.jsx']
+const resolve = {
+    extensions: [".js", ".jsx"],
+    alias: {
+        bulma: 'bulma/css/bulma.css'
+    }
 };
 
 const plugins = [
@@ -19,6 +21,13 @@ const plugins = [
 ];
 
 const rules = [
+    {
+        test: /\.css$/,
+        use: [
+            {loader:"style-loader"},
+            {loader:"css-loader"}
+        ]
+    },
     {
         test: /\.jsx?$/,
         enforce: "pre",
@@ -66,7 +75,7 @@ if (NODE_ENV === 'production') {
 const config = {
     entry: {
         app: ['./app/js/main.jsx'],
-        vendor: ['react', 'react-dom']
+        vendor: ['react', 'react-dom', 'bulma']
     },
     resolve: resolve,
     output: {

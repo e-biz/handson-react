@@ -17,7 +17,7 @@ const plugins = [
 
 const rules = [
     {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         enforce: "pre",
         exclude: /node_modules/,
         use: [{
@@ -29,16 +29,17 @@ const rules = [
         }]
     },
     {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [{
             loader: 'babel-loader',
             options: {
-                presets: ['es2015']
+                presets: ['es2015', 'react']
             }
         }]
     }
 ];
+
 
 if (NODE_ENV === 'production') {
     plugins.push(new webpack.DefinePlugin({
@@ -47,21 +48,23 @@ if (NODE_ENV === 'production') {
         }
     }));
 
-    Object.assign(resolve.alias, {
-        lodash: 'lodash/lodash.min.js'
-    });
+    resolve.alias = {
+        react: 'react/dist/react.min.js',
+        'react-dom': 'react-dom/dist/react-dom.min.js'
+    };
 
+    // We must add this loader before babel loader because this loader is only for our source.
     rules.unshift({
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: ['uglify-loader']
     });
 }
 
-module.exports = {
+const config = {
     entry: {
-        app: ['./app/js/main.js'],
-        vendor: ['lodash']
+        app: ['./app/js/main.jsx'],
+        vendor: ['react', 'react-dom']
     },
     resolve: resolve,
     output: {
@@ -73,3 +76,9 @@ module.exports = {
     },
     plugins: plugins
 };
+
+if (NODE_ENV !== 'production') {
+    config.devtool = "source-map";
+}
+
+module.exports = config;

@@ -1,19 +1,18 @@
 {
   "name": "example5-Pokedex",
   "version": "1.0.0",
-  "description": "Create a simple pokedex",
+  "description": "Create a pokedex",
   "main": "index.js",
   "scripts": {
-    "serve": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --history-api-fallback --content-base app/root",
+    "serve": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base app/root",
     "build": "node node_modules/webpack/bin/webpack.js",
-    "build:prod": "set NODE_ENV=production&& node node_modules/webpack/bin/webpack.js && zip -r dist.zip dist/",
-    "test:NotFound": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-not-found-test.js",
-    "test:row": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-row-test.js",
-    "test:image": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-image-test.js",
+    "build:prod": "export NODE_ENV=production && node node_modules/webpack/bin/webpack.js && zip -r dist.zip dist/",
     "test:description": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-description-test.js",
-    "test:table": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-table-test.js",
     "test:information": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-information-test.js",
-    "test:pokedex": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokedex-test.js"
+    "test:row": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-row-test.js",
+    "test:table": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-table-test.js",
+    "test:pokedex": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokedex-test.js",
+    "test:image": "node node_modules/mocha/bin/mocha test/setup.js test/tests/pokemon-image-test.js"
   },
   "author": "jbpetit@excilys.com",
   "license": "MIT",
@@ -33,7 +32,6 @@
     "jsdom": "^9.12.0",
     "json-loader": "^0.5.4",
     "mocha": "^3.2.0",
-    "nock": "^9.0.13",
     "react-addons-test-utils": "^15.5.1",
     "style-loader": "^0.16.1",
     "transfer-webpack-plugin": "^0.1.4",
@@ -45,8 +43,6 @@
     "bulma": "^0.4.0",
     "classnames": "^2.2.5",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-progress-2": "^4.3.0",
-    "react-router": "2.8.1"
+    "react-dom": "^15.5.4"
   }
 }
