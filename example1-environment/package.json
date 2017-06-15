@@ -4,7 +4,7 @@
   "description": "intall environement exercice",
   "main": "index.js",
   "scripts": {
-    "serve": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --history-api-fallback --content-base app/root",
+    "serve": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --history-api-fallback --content-base app/root"
   },
   "author": "jbpetit@excilys.com",
   "license": "MIT",
