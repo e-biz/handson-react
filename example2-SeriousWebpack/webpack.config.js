@@ -23,7 +23,7 @@ const rules = [
         use: [{
             loader :'eslint-loader',
             options: {
-                failOnWarning: false,
+                failOnWarning: true,
                 failOnError: true
             }
         }]
@@ -41,6 +41,7 @@ const rules = [
 ];
 
 if (NODE_ENV === 'production') {
+    plugins.unshift(new webpack.optimize.UglifyJsPlugin());
     plugins.push(new webpack.DefinePlugin({
         'process.env': {
             NODE_ENV: JSON.stringify(NODE_ENV) // Some library like React use this value in order to exclude test helpers
@@ -52,13 +53,6 @@ if (NODE_ENV === 'production') {
             lodash: 'lodash/lodash.min.js'
         }
     };
-    
-    // We must add this loader before babel loader because this loader is only for our source.
-    rules.unshift({
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: ['uglify-loader']
-    });
 }
 
 module.exports = {
@@ -74,5 +68,5 @@ module.exports = {
     module: {
         rules
     },
-    plugins: plugins
+    plugins
 };

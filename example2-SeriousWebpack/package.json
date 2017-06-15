@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "./node_modules/.bin/webpack-dev-server --content-base app/root",
     "build": "rm -rf dist && ./node_modules/.bin/webpack",
-    "build:prod": "rm -rf dist && export NODE_ENV=production ./node_modules/.bin/webpack && zip -r dist.zip dist/"
+    "build:prod": "rm -rf dist && NODE_ENV=production ./node_modules/.bin/webpack && zip -r dist.zip dist/"
   },
   "author": "jbpetit@excilys.com",
   "license": "MIT",
@@ -19,7 +19,6 @@
     "eslint-plugin-react": "^6.10.3",
     "json-loader": "^0.5.4",
     "transfer-webpack-plugin": "^0.1.4",
-    "uglify-loader": "^2.0.0",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
   },

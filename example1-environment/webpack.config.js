@@ -1,5 +1,6 @@
-var TransferWebpackPlugin = require('transfer-webpack-plugin');
-var path = require("path");
+const path = require("path");
+const TransferWebpackPlugin = require('transfer-webpack-plugin');
+const version = require("./package.json").version;
 
 module.exports = {
     entry: {

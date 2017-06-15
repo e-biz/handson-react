@@ -47,7 +47,7 @@ module.exports = config;
 * Install `eslint` and `eslint-loader`.
 * You can specify eslint rules within the webpack.config.js file or you can create a .eslintrc.json file (which can be used by your ide)
 * Tell ESLint to fail on error and on warning (`eslint-loader` options).
-* Use ESLint in order to test the style of your code with `esversion` properties and `sourceType` with module (because we are in commonJS), `camelcase` rule and single `quote` rule.
+* Use ESLint in order to test the style of your code with `sourceType` with module (because we are in commonJS), `camelcase` rule and single `quote` rule.
 * Split your code: extract `vendor` code in an other file, using `CommonsChunkPlugin` and a vendor entry point in `webpack.config.js`.
 * Create a npm script `build:prod` that build AND add your dist package in a zip archive.
 
