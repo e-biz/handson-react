@@ -8,6 +8,17 @@ Example4 done.
 - See how we can inverse the data flows (here between the row and the pokedex.)
 - Play a bit with CSS in react (there are many other ways to deal with it... my favorite is CSS Modules).
 
+## Expected results
+A simple pokédex.
+![Pokedex splited in React component](https://github.com/e-biz/handson-react/blob/master/example5-pok%C3%A9dex/pokedexReactComponent.jpg)
+
+## Documentation
+- [CheatSheet](http://reactcheatsheet.com/)
+- [CSS Modules](https://github.com/gajus/react-css-modules)
+- [Reusable Components](https://facebook.github.io/react/docs/reusable-components.html)
+- [Thinking in react](https://facebook.github.io/react/docs/thinking-in-react.html)
+- [React Patterns](https://github.com/krasimir/react-in-patterns/tree/master/patterns/composition)
+
 ## Instructions
 Create a Pokédex with all the previous things learned.
 
@@ -55,14 +66,3 @@ Have a look at the model: `app/root/pokedex.json`.
     
 ## Bonus
 Transform the PokemonRow, PokemonImage and PokemonDescription into stateless functions.
-
-## Expected results
-A simple pokédex.
-![Pokedex splited in React component](https://github.com/e-biz/handson-react/blob/solution/example5-pokédex/pokedexReactComponent.jpg)
-
-## Documentation
-- [CheatSheet](http://reactcheatsheet.com/)
-- [CSS Modules](https://github.com/gajus/react-css-modules)
-- [Reusable Components](https://facebook.github.io/react/docs/reusable-components.html)
-- [Thinking in react](https://facebook.github.io/react/docs/thinking-in-react.html)
-- [React Patterns](https://github.com/krasimir/react-in-patterns/tree/master/patterns/composition)

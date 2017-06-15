@@ -1,12 +1,21 @@
 # Hand on React - PokéHttp
 
 ## Requirements
-Example5 done. 
+Example5 done.
 
-## Objectifs
+## Expected results
+A bit more complex pokédex.
+
+## Goals
 - Add functional complexity in our App.
 - Use React-router.
 - Use superagent.
+
+## Documentation
+- [React-router](https://github.com/reactjs/react-router)
+- [superagent](https://github.com/visionmedia/superagent)
+- [pokéapi](https://pokeapi.co/)
+- [react progress 2](https://github.com/milworm/react-progress-2)
 
 ## Instructions
 
@@ -53,12 +62,3 @@ Example5 done.
 
 ## Bonus
 use React-Progress-2 in order to show a progress bar when loading data from pokéapi.
-
-## Expected results
-A bit more complex pokédex.
-
-## Documentation
-- [React-router](https://github.com/reactjs/react-router)
-- [superagent](https://github.com/visionmedia/superagent)
-- [pokéapi](https://pokeapi.co/)
-- [react progress 2](https://github.com/milworm/react-progress-2)

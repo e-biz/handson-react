@@ -3,6 +3,9 @@
 ## Requirements
 - None
 
+## Expected results
+With this environment you are able manage npm dependencies and launch an internal HTTP server in order to test your changes.
+
 ## Instructions
 Install a working web developer environment with npm scripts, npm dependencies and webpack.
 
@@ -43,12 +46,9 @@ module.exports = config;
 <pre><code>
   "scripts": {
     "serve": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --history-api-fallback --content-base app/root",
-    "build" : ""
+    "build" : "[Command to complete]"
   }
 </code></pre>
-
-## Expected results
-With this environment you are able manage npm dependencies and launch an internal HTTP server in order to test your changes.
 
 ## Bonus
 Going further, ship with your code the version of the application and display it in the console of the app and in your web page.
