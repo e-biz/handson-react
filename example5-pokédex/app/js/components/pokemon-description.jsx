@@ -10,6 +10,7 @@ class PokemonDescription extends Component {
 }
 
 PokemonDescription.propTypes = {
+    pokemon: PropTypes.object
 };
 
 export default PokemonDescription;

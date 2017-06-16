@@ -10,5 +10,5 @@ const helloWorlds = [
     {region: 'europa', country: 'Italy', hello: 'Ciao'},
     {region: 'america', country: 'Canada', hello: 'CréVindiou'},
     {region: 'america', country: 'USA', hello: 'Hello'},
-    {region: 'america', country: 'Mexico', hello: 'Hola'},
+    {region: 'america', country: 'Mexico', hello: 'Hola'}
 ];
