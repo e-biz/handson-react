@@ -14,8 +14,8 @@ const helloWorlds = [
     {region: 'america', country: 'Mexico', hello: 'Hola'}
 ];
 
-const rows = helloWorlds.map(helloworld =>
-    React.createElement('p', {key: helloworld.hello}, helloworld.hello)
+const rows = helloWorlds.map((helloworld, index) =>
+    React.createElement('p', {key: index}, helloworld.hello)
 );
 
 const root = React.createElement('div', null, rows);

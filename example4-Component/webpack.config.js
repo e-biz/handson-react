@@ -50,7 +50,8 @@ if (NODE_ENV === 'production') {
 
     resolve.alias = {
         react: 'react/dist/react.min.js',
-        'react-dom': 'react-dom/dist/react-dom.min.js'
+        'react-dom': 'react-dom/dist/react-dom.min.js',
+        'prop-types': 'prop-types/prop-types.min.js'
     };
 
     // We must add this loader before babel loader because this loader is only for our source.

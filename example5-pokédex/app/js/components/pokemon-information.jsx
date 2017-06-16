@@ -9,11 +9,11 @@ class PokemonInformation extends Component {
         const children = [];
 
         React.Children.forEach(this.props.children, (child, index) => {
-            children.push(child);
-            if (index % 2 == 0) {
+            if (index !== 0) {
                 const hrKey = index + 'hr';
                 children.push(<hr key={hrKey}/>);
             }
+            children.push(child);
         });
 
         return (
